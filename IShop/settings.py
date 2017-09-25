@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Django settings for IShop project.
 
@@ -15,6 +16,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
+# 添加到系统搜索路径
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
@@ -29,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.UserProfile'
 
 # Application definition
 
@@ -39,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'DjangoUeditor',
+    'user_operation.apps.UserOperationConfig',
+    'trade.apps.TradeConfig',
+    'goods.apps.GoodsConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,9 +88,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'IShop',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'Assjusher123',
         'HOST': '127.0.0.1',
-        'OPTIONS': {'init_command:': 'SET storage_engine=INNODB'}
+        'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
 }
 
